@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lord Sai Investment & Share Market Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Mulish:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #0E4A7B;
+    --primary-dark: #0A2E57;
+    --cta: #3FB34F;
+    --cta-dark: #2d8a3c;
+    --bg: #E6E6E6;
+    --white: #FFFFFF;
+    --secondary: #1C6EA4;
+    --accent: #6FA9C9;
+    --gold: #F5A623;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Mulish', sans-serif;
+    background: var(--white);
+    color: #1a1a2e;
+    overflow-x: hidden;
+  }
+
+  /* ── LANGUAGE SWITCHER ── */
+  .lang-bar {
+    background: var(--primary-dark);
+    text-align: center;
+    padding: 8px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .lang-bar span { color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: 1px; }
+  .lang-btn {
+    background: transparent;
+    border: 1.5px solid var(--accent);
+    color: var(--accent);
+    padding: 4px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Mulish', sans-serif;
+    transition: all 0.3s;
+    letter-spacing: 0.5px;
+  }
+  .lang-btn.active, .lang-btn:hover {
+    background: var(--cta);
+    border-color: var(--cta);
+    color: white;
+    transform: scale(1.05);
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    background: var(--white);
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 20px rgba(14,74,123,0.1);
+    position: sticky;
+    top: 37px;
+    z-index: 999;
+  }
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(14,74,123,0.3);
+  }
+  .logo-icon svg { width: 30px; height: 30px; }
+  .logo-text { line-height: 1.2; }
+  .logo-text .brand { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 900; color: var(--primary-dark); }
+  .logo-text .tagline-small { font-size: 10px; color: var(--secondary); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    position: relative;
+    padding-bottom: 3px;
+    transition: color 0.3s;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--cta);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--cta); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    background: var(--cta);
+    color: white !important;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-weight: 800 !important;
+    font-size: 13px !important;
+    box-shadow: 0 4px 15px rgba(63,179,79,0.35);
+    transition: all 0.3s !important;
+  }
+  .nav-cta:hover { background: var(--cta-dark) !important; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(63,179,79,0.45) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 92vh;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 40%, var(--secondary) 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-bg-chart {
+    position: absolute;
+    right: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.08;
+    width: 600px;
+  }
+  /* Animated candlesticks background */
+  .candles-bg {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    padding: 0 40px;
+    opacity: 0.12;
+  }
+  .candle {
+    width: 18px;
+    border-radius: 3px 3px 0 0;
+    animation: candleGrow 2s ease-out forwards;
+    animation-delay: var(--d);
+  }
+  .candle.green { background: #3FB34F; }
+  .candle.red { background: #e74c3c; }
+  @keyframes candleGrow {
+    from { height: 0; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 80px 60px;
+    max-width: 700px;
+    animation: heroSlideIn 1s ease-out;
+  }
+  @keyframes heroSlideIn {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: var(--gold);
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.8s 0.2s both;
+  }
+  .hero-badge::before { content: '★'; }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 900;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    animation: fadeInUp 0.8s 0.4s both;
+  }
+  .hero h1 span { color: var(--gold); }
+
+  .hero-tagline {
+    font-size: clamp(18px, 2.5vw, 26px);
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: 20px;
+    animation: fadeInUp 0.8s 0.5s both;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+
+  .conversion-tagline {
+    background: linear-gradient(135deg, var(--gold), #FFD700);
+    color: var(--primary-dark);
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-size: clamp(14px, 1.8vw, 18px);
+    font-weight: 900;
+    margin-bottom: 28px;
+    animation: fadeInUp 0.8s 0.6s both;
+    box-shadow: 0 8px 25px rgba(245,166,35,0.4);
+    display: inline-block;
+    line-height: 1.4;
+  }
+
+  .hero p {
+    color: rgba(255,255,255,0.85);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 36px;
+    animation: fadeInUp 0.8s 0.7s both;
+    max-width: 560px;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s 0.9s both;
+  }
+  .btn-primary {
+    background: var(--cta);
+    color: white;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 16px;
+    text-decoration: none;
+    box-shadow: 0 6px 25px rgba(63,179,79,0.5);
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    border: none;
+    font-family: 'Mulish', sans-serif;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 35px rgba(63,179,79,0.6); background: var(--cta-dark); }
+  .btn-secondary {
+    background: transparent;
+    color: white;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.5);
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.15); border-color: white; transform: translateY(-3px); }
+
+  .hero-stats {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: fadeInRight 1s 1s both;
+    z-index: 2;
+  }
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translate(50px, -50%); }
+    to { opacity: 1; transform: translate(0, -50%); }
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 20px 28px;
+    text-align: center;
+    min-width: 160px;
+    transition: transform 0.3s;
+  }
+  .stat-card:hover { transform: scale(1.05); }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--gold); line-height: 1; }
+  .stat-label { color: rgba(255,255,255,0.8); font-size: 12px; font-weight: 600; letter-spacing: 1px; margin-top: 4px; }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 80px 60px; }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 900;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  .section-subtitle {
+    text-align: center;
+    color: var(--secondary);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 56px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section-divider {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--cta), var(--gold));
+    border-radius: 2px;
+    margin: 14px auto 16px;
+  }
+
+  /* ── MARQUEE TICKER ── */
+  .ticker-wrap {
+    background: var(--primary-dark);
+    padding: 12px 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .ticker-label {
+    background: var(--cta);
+    color: white;
+    font-weight: 800;
+    font-size: 12px;
+    padding: 4px 16px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-right: 20px;
+    z-index: 1;
+  }
+  .ticker-track {
+    display: flex;
+    gap: 40px;
+    animation: tickerScroll 25s linear infinite;
+    white-space: nowrap;
+  }
+  .ticker-item { color: rgba(255,255,255,0.85); font-size: 13px; font-weight: 600; }
+  .ticker-item .up { color: #3FB34F; }
+  .ticker-item .down { color: #e74c3c; }
+  @keyframes tickerScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── WHY CHOOSE ── */
+  .why-section { background: var(--bg); }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .feature-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 32px 28px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(14,74,123,0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid transparent;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  .feature-card.visible { opacity: 1; transform: translateY(0); }
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(14,74,123,0.15);
+    border-color: var(--accent);
+  }
+  .feature-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 28px;
+    box-shadow: 0 8px 20px rgba(14,74,123,0.25);
+    transition: transform 0.3s;
+  }
+  .feature-card:hover .feature-icon { transform: rotate(5deg) scale(1.1); }
+  .feature-card h3 { color: var(--primary-dark); font-size: 17px; font-weight: 800; margin-bottom: 10px; }
+  .feature-card p { color: #555; font-size: 14px; line-height: 1.65; }
+
+  /* ── WHAT YOU LEARN ── */
+  .learn-section { background: var(--white); }
+  .learn-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .learn-item {
+    background: linear-gradient(135deg, #f0f6ff, #e8f4fd);
+    border-left: 4px solid var(--secondary);
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  .learn-item.visible { opacity: 1; transform: translateX(0); }
+  .learn-item:hover { transform: translateX(6px); background: linear-gradient(135deg, #dceeff, #d0eaf9); border-left-color: var(--primary); }
+  .learn-icon { font-size: 24px; flex-shrink: 0; }
+  .learn-item span { font-weight: 700; color: var(--primary-dark); font-size: 14px; }
+
+  /* ── WHO IS IT FOR ── */
+  .who-section { background: var(--bg); }
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+  }
+  .who-card {
+    background: white;
+    border-radius: 18px;
+    padding: 28px 20px;
+    text-align: center;
+    transition: all 0.35s;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.07);
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  .who-card.visible { opacity: 1; transform: scale(1); }
+  .who-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 12px 30px rgba(14,74,123,0.15); }
+  .who-emoji { font-size: 40px; margin-bottom: 12px; display: block; }
+  .who-card h3 { color: var(--primary-dark); font-size: 15px; font-weight: 800; margin-bottom: 6px; }
+  .who-card p { color: #666; font-size: 12px; }
+
+  /* ── FAQ ── */
+  .faq-section { background: var(--white); }
+  .faq-container { max-width: 780px; margin: 0 auto; }
+  .faq-item {
+    border: 1.5px solid #e0eaf4;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+  }
+  .faq-item:hover { box-shadow: 0 4px 20px rgba(14,74,123,0.1); }
+  .faq-q {
+    padding: 18px 24px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    transition: background 0.3s;
+  }
+  .faq-q:hover { background: #f0f6ff; }
+  .faq-q.open { background: var(--primary-dark); color: white; }
+  .faq-arrow { font-size: 18px; transition: transform 0.3s; flex-shrink: 0; margin-left: 12px; }
+  .faq-q.open .faq-arrow { transform: rotate(180deg); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s;
+    padding: 0 24px;
+    background: #f8fbff;
+    color: #444;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .faq-a.open { max-height: 300px; padding: 16px 24px; }
+
+  /* ── CTA BANNER ── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    text-align: center;
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '📈';
+    position: absolute;
+    font-size: 200px;
+    opacity: 0.05;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .cta-tagline-big {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 4vw, 46px);
+    font-weight: 900;
+    color: white;
+    margin-bottom: 16px;
+  }
+  .cta-tagline-big strong { color: var(--gold); }
+  .cta-sub { color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 36px; font-weight: 600; }
+  .cta-highlight {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold), #FFD700);
+    color: var(--primary-dark);
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 36px;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(245,166,35,0.4); }
+    50% { box-shadow: 0 0 0 16px rgba(245,166,35,0); }
+  }
+  .contact-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 36px;
+  }
+  .contact-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 20px 28px;
+    color: white;
+    text-align: center;
+    min-width: 180px;
+    transition: all 0.3s;
+  }
+  .contact-card:hover { background: rgba(255,255,255,0.2); transform: translateY(-4px); }
+  .contact-card .ci { font-size: 28px; margin-bottom: 8px; }
+  .contact-card .cl { font-size: 12px; color: var(--accent); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+  .contact-card .cv { font-size: 15px; font-weight: 700; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--primary-dark);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 28px 40px;
+    font-size: 13px;
+  }
+  footer strong { color: var(--gold); }
+
+  /* ── LANGUAGE CONTENT ── */
+  [data-lang] { display: none; }
+  [data-lang].active { display: block; }
+  .lang-inline { display: none; }
+  .lang-inline.active { display: inline; }
+
+  /* ── FLOATING CALL BUTTON ── */
+  .float-call {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--cta);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 6px 25px rgba(63,179,79,0.5);
+    z-index: 9999;
+    text-decoration: none;
+    animation: floatPulse 2.5s infinite;
+    transition: transform 0.3s;
+  }
+  .float-call:hover { transform: scale(1.15); }
+  @keyframes floatPulse {
+    0%, 100% { box-shadow: 0 6px 25px rgba(63,179,79,0.5), 0 0 0 0 rgba(63,179,79,0.4); }
+    50% { box-shadow: 0 6px 25px rgba(63,179,79,0.5), 0 0 0 14px rgba(63,179,79,0); }
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal { opacity: 0; transform: translateY(40px); transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 12px 20px; }
+    .nav-links { display: none; }
+    section { padding: 60px 24px; }
+    .hero { padding: 0; }
+    .hero-content { padding: 60px 24px; max-width: 100%; }
+    .hero-stats { display: none; }
+    .hero h1 { font-size: 32px; }
+    .candles-bg { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- FLOATING CALL -->
+<a href="tel:+919920254354" class="float-call" title="Call Now">📞</a>
+
+<!-- LANGUAGE BAR -->
+<div class="lang-bar">
+  <span>LANGUAGE:</span>
+  <button class="lang-btn active" onclick="setLang('en')">English</button>
+  <button class="lang-btn" onclick="setLang('hi')">हिंदी</button>
+  <button class="lang-btn" onclick="setLang('mr')">मराठी</button>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#" class="logo-wrap">
+    <div class="">
+        <img src="Lord sai logo1.png" width="200">
+    </div>
+    <div class="logo-text">
+      <div class="brand">Lord Sai</div>
+      <div class="tagline-small">Investment & Share Market</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about" data-key="nav_about">About</a></li>
+    <li><a href="#learn" data-key="nav_learn">What You Learn</a></li>
+    <li><a href="#who" data-key="nav_who">Who It's For</a></li>
+    <li><a href="#faq" data-key="nav_faq">FAQ</a></li>
+    <li><a href="#contact" class="nav-cta" data-key="nav_enroll">Enroll Now</a></li>
+  </ul>
+</nav>
+
+<!-- STOCK TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-label">LIVE</div>
+  <div style="overflow:hidden;flex:1">
+    <div class="ticker-track">
+      <span class="ticker-item">SENSEX <span class="up">▲ 81,234 (+0.68%)</span></span>
+      <span class="ticker-item">NIFTY 50 <span class="up">▲ 24,780 (+0.52%)</span></span>
+      <span class="ticker-item">RELIANCE <span class="up">▲ 2,945 (+1.2%)</span></span>
+      <span class="ticker-item">TCS <span class="down">▼ 3,612 (-0.3%)</span></span>
+      <span class="ticker-item">INFY <span class="up">▲ 1,578 (+0.8%)</span></span>
+      <span class="ticker-item">HDFC BANK <span class="up">▲ 1,745 (+0.6%)</span></span>
+      <span class="ticker-item">BANK NIFTY <span class="up">▲ 52,450 (+0.4%)</span></span>
+      <!-- duplicate for infinite scroll -->
+      <span class="ticker-item">SENSEX <span class="up">▲ 81,234 (+0.68%)</span></span>
+      <span class="ticker-item">NIFTY 50 <span class="up">▲ 24,780 (+0.52%)</span></span>
+      <span class="ticker-item">RELIANCE <span class="up">▲ 2,945 (+1.2%)</span></span>
+      <span class="ticker-item">TCS <span class="down">▼ 3,612 (-0.3%)</span></span>
+      <span class="ticker-item">INFY <span class="up">▲ 1,578 (+0.8%)</span></span>
+      <span class="ticker-item">HDFC BANK <span class="up">▲ 1,745 (+0.6%)</span></span>
+      <span class="ticker-item">BANK NIFTY <span class="up">▲ 52,450 (+0.4%)</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="candles-bg" id="candlesBg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span data-lang="en" class="active">Uran & Navi Mumbai's #1 Stock Market Academy</span>
+      <span data-lang="hi">उरण और नवी मुंबई की #1 स्टॉक मार्केट अकादमी</span>
+      <span data-lang="mr">उरण आणि नवी मुंबईची #1 शेअर बाजार अकादमी</span>
+    </div>
+    <h1>
+      <span data-lang="en" class="active">Lord Sai Investment<br>&amp; Share Market<br><span>Academy</span></span>
+      <span data-lang="hi">लॉर्ड साई इन्वेस्टमेंट<br>एंड शेयर मार्केट<br><span>अकादमी</span></span>
+      <span data-lang="mr">लॉर्ड साई इन्व्हेस्टमेंट<br>अँड शेअर मार्केट<br><span>अकादमी</span></span>
+    </h1>
+    <div class="hero-tagline">
+      <span data-lang="en" class="active">Learn Stock Market | Earn Smart | Grow Wealth</span>
+      <span data-lang="hi">स्टॉक मार्केट सीखें | स्मार्ट तरीके से कमाएं | दौलत बढ़ाएं</span>
+      <span data-lang="mr">शेअर बाजार शिका | हुशारीने कमवा | संपत्ती वाढवा</span>
+    </div>
+    <div class="conversion-tagline">
+      <span data-lang="en" class="active">🚀 Stop Losing Money on Guesswork — Start Trading with Strategy!</span>
+      <span data-lang="hi">🚀 अंदाज़े पर पैसे गंवाना बंद करें — रणनीति के साथ ट्रेडिंग शुरू करें!</span>
+      <span data-lang="mr">🚀 अंदाजाने पैसे गमावणे थांबवा — रणनीतीने ट्रेडिंग सुरू करा!</span>
+    </div>
+    <p>
+      <span data-lang="en" class="active">Practical, real-world training from basics to advanced. Turning beginners into confident, financially independent traders and investors — right here in Uran, Navi Mumbai.</span>
+      <span data-lang="hi">बेसिक से एडवांस्ड तक प्रैक्टिकल, असल दुनिया की ट्रेनिंग। उरण, नवी मुंबई में नए लोगों को आत्मविश्वासी और आर्थिक रूप से स्वतंत्र ट्रेडर बनाना।</span>
+      <span data-lang="mr">मूलभूत ते प्रगत स्तरापर्यंत व्यावहारिक, वास्तविक जगातील प्रशिक्षण. उरण, नवी मुंबईत नवशिक्यांना आत्मविश्वासू व्यापारी बनवणे.</span>
+    </p>
+    <div class="hero-btns">
+      <a href="tel:+919920254354" class="btn-primary">
+        📞 <span data-lang="en" class="active">Call Now — Free Counseling</span><span data-lang="hi">अभी कॉल करें — फ्री काउंसलिंग</span><span data-lang="mr">आता कॉल करा — मोफत मार्गदर्शन</span>
+      </a>
+      <a href="#learn" class="btn-secondary">
+        <span data-lang="en" class="active">Explore Courses ↓</span><span data-lang="hi">कोर्स देखें ↓</span><span data-lang="mr">कोर्स पहा ↓</span>
+      </a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-card">
+      <div class="stat-num">20+</div>
+      <div class="stat-label">
+        <span data-lang="en" class="active">Students Trained</span>
+        <span data-lang="hi">छात्र प्रशिक्षित</span>
+        <span data-lang="mr">विद्यार्थी प्रशिक्षित</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">3-4</div>
+      <div class="stat-label">
+        <span data-lang="en" class="active">Month Course</span>
+        <span data-lang="hi">मासिक कोर्स</span>
+        <span data-lang="mr">मासिक अभ्यासक्रम</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">Week Day and Weekend</div>
+      <div class="stat-label">
+        <span data-lang="en" class="active">for you</span>
+        <span data-lang="hi">आपके लिए</span>
+        <span data-lang="mr">तुमच्यासाठी</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section class="why-section" id="about">
+  <h2 class="section-title reveal">
+    <span data-lang="en" class="active">Why Choose Us?</span>
+    <span data-lang="hi">हमें क्यों चुनें?</span>
+    <span data-lang="mr">आम्हाला का निवडावे?</span>
+  </h2>
+  <div class="section-divider"></div>
+  <p class="section-subtitle reveal">
+    <span data-lang="en" class="active">We don't just teach theory — we train you to trade and invest in the real market with confidence.</span>
+    <span data-lang="hi">हम सिर्फ थ्योरी नहीं सिखाते — हम आपको असल बाज़ार में ट्रेड और इन्वेस्ट करने की ट्रेनिंग देते हैं।</span>
+    <span data-lang="mr">आम्ही फक्त सिद्धांत शिकवत नाही — आम्ही तुम्हाला खऱ्या बाजारात व्यापार करण्यासाठी प्रशिक्षण देतो.</span>
+  </p>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3><span data-lang="en" class="active">Live Market Training</span><span data-lang="hi">लाइव मार्केट ट्रेनिंग</span><span data-lang="mr">थेट बाजार प्रशिक्षण</span></h3>
+      <p><span data-lang="en" class="active">Real chart analysis with live examples — not just theoretical concepts.</span><span data-lang="hi">असली चार्ट एनालिसिस और लाइव उदाहरण — सिर्फ थ्योरी नहीं।</span><span data-lang="mr">वास्तविक चार्ट विश्लेषण आणि थेट उदाहरणे — फक्त सिद्धांत नाही.</span></p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <h3><span data-lang="en" class="active">Strategy-Based Learning</span><span data-lang="hi">स्ट्रेटजी-बेस्ड लर्निंग</span><span data-lang="mr">रणनीतीवर आधारित शिक्षण</span></h3>
+      <p><span data-lang="en" class="active">Clear, actionable strategies — not random guesses or tips.</span><span data-lang="hi">स्पष्ट, काम आने वाली स्ट्रेटजी — रैंडम गेस नहीं।</span><span data-lang="mr">स्पष्ट, कृतीयोग्य रणनीती — यादृच्छिक अंदाज नाही.</span></p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🛡️</div>
+      <h3><span data-lang="en" class="active">Risk Management Focus</span><span data-lang="hi">रिस्क मैनेजमेंट पर ध्यान</span><span data-lang="mr">जोखीम व्यवस्थापनावर लक्ष</span></h3>
+      <p><span data-lang="en" class="active">Learn to protect your capital and manage risk — the foundation of profitable trading.</span><span data-lang="hi">अपनी पूंजी सुरक्षित रखना और रिस्क मैनेज करना सीखें।</span><span data-lang="mr">भांडवल संरक्षण आणि जोखीम व्यवस्थापन शिका.</span></p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">👤</div>
+      <h3><span data-lang="en" class="active">Personal Guidance</span><span data-lang="hi">व्यक्तिगत मार्गदर्शन</span><span data-lang="mr">वैयक्तिक मार्गदर्शन</span></h3>
+      <p><span data-lang="en" class="active">Individual mentorship and post-course support so you never feel stuck.</span><span data-lang="hi">व्यक्तिगत मेंटरशिप और कोर्स के बाद भी सहायता।</span><span data-lang="mr">वैयक्तिक मार्गदर्शन आणि अभ्यासक्रमानंतरही सहाय्य.</span></p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📅</div>
+      <h3><span data-lang="en" class="active">Flexible Batches</span><span data-lang="hi">फ्लेक्सिबल बैच</span><span data-lang="mr">लवचिक बॅचेस</span></h3>
+      <p><span data-lang="en" class="active">Morning and evening batches — perfect for job holders and busy professionals.</span><span data-lang="hi">सुबह और शाम के बैच — नौकरी करने वालों के लिए बिल्कुल सही।</span><span data-lang="mr">सकाळ आणि संध्याकाळ बॅचेस — नोकरदारांसाठी योग्य.</span></p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💰</div>
+      <h3><span data-lang="en" class="active">Affordable Fees</span><span data-lang="hi">किफायती फीस</span><span data-lang="mr">परवडणारी शुल्क रचना</span></h3>
+      <p><span data-lang="en" class="active">World-class training at fees that don't break the bank. Start with ₹5,000–₹10,000.</span><span data-lang="hi">वर्ल्ड-क्लास ट्रेनिंग, किफायती फीस में। ₹5,000–₹10,000 से शुरू।</span><span data-lang="mr">जागतिक दर्जाचे प्रशिक्षण, परवडणाऱ्या शुल्कात. ₹5,000–₹10,000 पासून.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU LEARN -->
+<section class="learn-section" id="learn">
+  <h2 class="section-title reveal">
+    <span data-lang="en" class="active">What You Will Learn</span>
+    <span data-lang="hi">आप क्या सीखेंगे</span>
+    <span data-lang="mr">तुम्ही काय शिकता</span>
+  </h2>
+  <div class="section-divider"></div>
+  <p class="section-subtitle reveal">
+    <span data-lang="en" class="active">A comprehensive curriculum from absolute basics to professional-level trading and investing.</span>
+    <span data-lang="hi">बिल्कुल बेसिक से लेकर प्रोफेशनल लेवल तक का पूरा करिकुलम।</span>
+    <span data-lang="mr">अगदी मूलभूत ते व्यावसायिक स्तरापर्यंत सर्वसमावेशक अभ्यासक्रम.</span>
+  </p>
+  <div class="learn-grid">
+    <div class="learn-item"><span class="learn-icon">📈</span><span data-lang="en" class="active">Stock Market Basics (Sensex, Nifty, IPO, SEBI)</span><span data-lang="hi">स्टॉक मार्केट बेसिक्स (सेंसेक्स, निफ्टी, IPO, SEBI)</span><span data-lang="mr">शेअर बाजाराची मूलभूत माहिती</span></div>
+    <div class="learn-item"><span class="learn-icon">🕯️</span><span data-lang="en" class="active">Technical Analysis (Candlestick & Chart Patterns)</span><span data-lang="hi">टेक्निकल एनालिसिस (कैंडलस्टिक & चार्ट पैटर्न)</span><span data-lang="mr">तांत्रिक विश्लेषण (कँडलस्टिक पॅटर्न्स)</span></div>
+    <div class="learn-item"><span class="learn-icon">📊</span><span data-lang="en" class="active">Support and Resistance</span><span data-lang="hi">सपोर्ट और रेसिस्टेंस</span><span data-lang="mr">समर्थन आणि प्रतिकार</span></div>
+    <div class="learn-item"><span class="learn-icon">💡</span><span data-lang="en" class="active">Price Action Strategy</span><span data-lang="hi">प्राइस एक्शन स्ट्रेटजी</span><span data-lang="mr">प्राइस अॅक्शन स्ट्रॅटेजी</span></div>
+    <div class="learn-item"><span class="learn-icon">⚡</span><span data-lang="en" class="active">Intraday Trading</span><span data-lang="hi">इंट्राडे ट्रेडिंग</span><span data-lang="mr">इंट्राडे ट्रेडिंग</span></div>
+    <div class="learn-item"><span class="learn-icon">🌊</span><span data-lang="en" class="active">Swing Trading</span><span data-lang="hi">स्विंग ट्रेडिंग</span><span data-lang="mr">स्विंग ट्रेडिंग</span></div>
+    <div class="learn-item"><span class="learn-icon">🏦</span><span data-lang="en" class="active">Long-Term Investing</span><span data-lang="hi">दीर्घकालिक निवेश</span><span data-lang="mr">दीर्घकालीन गुंतवणूक</span></div>
+    <div class="learn-item"><span class="learn-icon">🔢</span><span data-lang="en" class="active">Options Trading (Delta, Theta, Gamma, Vega)</span><span data-lang="hi">ऑप्शंस ट्रेडिंग (डेल्टा, थीटा, गामा, वेगा)</span><span data-lang="mr">ऑप्शन्स ट्रेडिंग (डेल्टा, थीटा, गॅमा, वेगा)</span></div>
+    <div class="learn-item"><span class="learn-icon">🧠</span><span data-lang="en" class="active">Trading Psychology</span><span data-lang="hi">ट्रेडिंग साइकोलॉजी</span><span data-lang="mr">ट्रेडिंग मानसशास्त्र</span></div>
+    <div class="learn-item"><span class="learn-icon">🛡️</span><span data-lang="en" class="active">Risk Management & Capital Protection</span><span data-lang="hi">रिस्क मैनेजमेंट और पूंजी सुरक्षा</span><span data-lang="mr">जोखीम व्यवस्थापन आणि भांडवल संरक्षण</span></div>
+    <div class="learn-item"><span class="learn-icon">📋</span><span data-lang="en" class="active">Financial Planning</span><span data-lang="hi">वित्तीय योजना</span><span data-lang="mr">आर्थिक नियोजन</span></div>
+    <div class="learn-item"><span class="learn-icon">🎓</span><span data-lang="en" class="active">Course Completion Certificate</span><span data-lang="hi">कोर्स कंप्लीशन सर्टिफिकेट</span><span data-lang="mr">अभ्यासक्रम पूर्णत्वाचे प्रमाणपत्र</span></div>
+  </div>
+</section>
+
+<!-- WHO IS IT FOR -->
+<section class="who-section" id="who">
+  <h2 class="section-title reveal">
+    <span data-lang="en" class="active">Who Is This For?</span>
+    <span data-lang="hi">यह किसके लिए है?</span>
+    <span data-lang="mr">हे कोणासाठी आहे?</span>
+  </h2>
+  <div class="section-divider"></div>
+  <div class="who-grid">
+    <div class="who-card"><span class="who-emoji">🎓</span><h3><span data-lang="en" class="active">Students</span><span data-lang="hi">विद्यार्थी</span><span data-lang="mr">विद्यार्थी</span></h3><p><span data-lang="en" class="active">Start building wealth early</span><span data-lang="hi">जल्दी से पैसा बनाना शुरू करें</span><span data-lang="mr">लहान वयातच संपत्ती निर्माण करा</span></p></div>
+    <div class="who-card"><span class="who-emoji">💼</span><h3><span data-lang="en" class="active">Job Holders</span><span data-lang="hi">नौकरी करने वाले</span><span data-lang="mr">नोकरदार</span></h3><p><span data-lang="en" class="active">Create a second income stream</span><span data-lang="hi">दूसरी इनकम बनाएं</span><span data-lang="mr">दुसरे उत्पन्न निर्माण करा</span></p></div>
+    <div class="who-card"><span class="who-emoji">🏢</span><h3><span data-lang="en" class="active">Business Owners</span><span data-lang="hi">बिज़नेस मालिक</span><span data-lang="mr">व्यवसाय मालक</span></h3><p><span data-lang="en" class="active">Manage and grow your profits</span><span data-lang="hi">मुनाफा मैनेज और बढ़ाएं</span><span data-lang="mr">नफा व्यवस्थापित करा</span></p></div>
+    <div class="who-card"><span class="who-emoji">🏠</span><h3><span data-lang="en" class="active">Housewives</span><span data-lang="hi">गृहिणियां</span><span data-lang="mr">गृहिणी</span></h3><p><span data-lang="en" class="active">Achieve financial independence</span><span data-lang="hi">आर्थिक स्वतंत्रता पाएं</span><span data-lang="mr">आर्थिक स्वातंत्र्य मिळवा</span></p></div>
+    <div class="who-card"><span class="who-emoji">💻</span><h3><span data-lang="en" class="active">Freelancers</span><span data-lang="hi">फ्रीलांसर</span><span data-lang="mr">फ्रीलान्सर</span></h3><p><span data-lang="en" class="active">Handle and grow irregular income</span><span data-lang="hi">अनियमित आय मैनेज करें</span><span data-lang="mr">अनियमित उत्पन्न सांभाळा</span></p></div>
+    <div class="who-card"><span class="who-emoji">🌟</span><h3><span data-lang="en" class="active">Retired Individuals</span><span data-lang="hi">रिटायर्ड व्यक्ति</span><span data-lang="mr">निवृत्त व्यक्ती</span></h3><p><span data-lang="en" class="active">Protect and grow your savings</span><span data-lang="hi">बचत को सुरक्षित और बढ़ाएं</span><span data-lang="mr">बचतीचे संरक्षण आणि वाढ</span></p></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <h2 class="section-title reveal">
+    <span data-lang="en" class="active">Frequently Asked Questions</span>
+    <span data-lang="hi">अक्सर पूछे जाने वाले सवाल</span>
+    <span data-lang="mr">वारंवार विचारले जाणारे प्रश्न</span>
+  </h2>
+  <div class="section-divider"></div>
+  <div class="faq-container reveal">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span data-lang="en" class="active">Is the stock market risky?</span>
+        <span data-lang="hi">क्या शेयर बाज़ार रिस्की है?</span>
+        <span data-lang="mr">शेअर बाजार धोकादायक आहे का?</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">
+        <span data-lang="en" class="active">Yes — trading WITHOUT knowledge is high risk. With the right strategy and risk management, risk becomes controlled and manageable. That's exactly what we teach.</span>
+        <span data-lang="hi">हाँ — बिना जानकारी के ट्रेडिंग = ज़्यादा रिस्क। सही स्ट्रेटजी और रिस्क मैनेजमेंट से रिस्क कंट्रोल हो जाता है। यही हम सिखाते हैं।</span>
+        <span data-lang="mr">होय — ज्ञानाशिवाय व्यापार करणे म्हणजे मोठा धोका. योग्य रणनीती आणि जोखीम व्यवस्थापनामुळे जोखीम नियंत्रणात येते.</span>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span data-lang="en" class="active">Can absolute beginners join?</span>
+        <span data-lang="hi">क्या नए लोग इस क्लास में शामिल हो सकते हैं?</span>
+        <span data-lang="mr">नवशिक्यांना या वर्गात प्रवेश घेता येईल का?</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">
+        <span data-lang="en" class="active">Absolutely! This course is designed for absolute beginners all the way to advanced learners. No prior knowledge required.</span>
+        <span data-lang="hi">बिल्कुल! यह कोर्स बिल्कुल नए लोगों से लेकर एडवांस तक सभी के लिए बनाया गया है। पहले से कोई जानकारी ज़रूरी नहीं।</span>
+        <span data-lang="mr">होय. हे अगदी नवशिक्यांपासून ते प्रगत विद्यार्थ्यांपर्यंत सर्वांसाठी तयार केले आहे. कोणत्याही पूर्वज्ञानाची आवश्यकता नाही.</span>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span data-lang="en" class="active">How much capital is needed to start trading?</span>
+        <span data-lang="hi">ट्रेडिंग शुरू करने के लिए कितने कैपिटल की ज़रूरत है?</span>
+        <span data-lang="mr">व्यापार सुरू करण्यासाठी किती भांडवल लागते?</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">
+        <span data-lang="en" class="active">During the learning phase: No capital needed at all. For air/practice trading: You can start with ₹5,000 – ₹10,000. More capital gives more flexibility, but it's not mandatory.</span>
+        <span data-lang="hi">सीखने के चरण में: कोई पूंजी नहीं चाहिए। एयर ट्रेनिंग में: ₹5,000–₹10,000 से शुरू कर सकते हैं। ज़्यादा कैपिटल = बेहतर फ्लेक्सिबिलिटी, ज़रूरी नहीं।</span>
+        <span data-lang="mr">शिकण्याच्या टप्प्यात: भांडवलाची आवश्यकता नाही. एअर प्रशिक्षणासाठी: ₹5,000 ते ₹10,000 पासून सुरुवात करू शकता.</span>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span data-lang="en" class="active">Will I start earning immediately after joining?</span>
+        <span data-lang="hi">क्या मैं जॉइन करने के तुरंत बाद कमाना शुरू कर दूंगा?</span>
+        <span data-lang="mr">सामील झाल्यावर मला लगेच कमाई सुरू होईल का?</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">
+        <span data-lang="en" class="active">No — and if anyone promises that, they're lying. The real process: Learn → Practice → Control Emotions → Then consistency and earnings come. We set honest expectations.</span>
+        <span data-lang="hi">नहीं — और अगर कोई ऐसा वादा करता है, वह झूठ बोल रहा है। असली प्रक्रिया: सीखें → प्रैक्टिस करें → भावनाओं को कंट्रोल करें → फिर कंसिस्टेंसी आती है।</span>
+        <span data-lang="mr">नाही. जर कोणी तसे वचन देत असेल, तर ते खोटे बोलत आहेत. आधी शिका → सराव करा → भावनांवर नियंत्रण मिळवा → मग सातत्य येते.</span>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span data-lang="en" class="active">What is the course duration?</span>
+        <span data-lang="hi">कोर्स की ड्यूरेशन क्या है?</span>
+        <span data-lang="mr">अभ्यासक्रमाचा कालावधी काय आहे?</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">
+        <span data-lang="en" class="active">Typically 30 to 45 days, depending on the batch and level. Flexible morning and evening batches are available 7 days a week.</span>
+        <span data-lang="hi">आमतौर पर 30 से 45 दिन, बैच और लेवल पर निर्भर। लचीले सुबह और शाम के बैच सप्ताह में 7 दिन उपलब्ध हैं।</span>
+        <span data-lang="mr">साधारणपणे 30 ते 45 दिवस, बॅच आणि पातळीवर अवलंबून. सकाळ/संध्याकाळ लवचिक बॅचेस आठवड्याचे 7 दिवस उपलब्ध.</span>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span data-lang="en" class="active">Do you teach Options Trading?</span>
+        <span data-lang="hi">क्या आप ऑप्शंस ट्रेडिंग सिखाते हैं?</span>
+        <span data-lang="mr">तुम्ही ऑप्शन्स ट्रेडिंग शिकवता का?</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">
+        <span data-lang="en" class="active">Yes! Complete basics to advanced — Delta, Theta, Gamma, Vega + full strategies included in the curriculum.</span>
+        <span data-lang="hi">हाँ! बेसिक से एडवांस तक — डेल्टा, थीटा, गामा, वेगा + पूरी स्ट्रेटजी करिकुलम में शामिल हैं।</span>
+        <span data-lang="mr">होय. संपूर्ण मूलभूत ते प्रगत: डेल्टा, थीटा, गॅमा, वेगा + रणनीती.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section class="cta-section" id="contact">
+  <div class="cta-tagline-big reveal">
+    <span data-lang="en" class="active">Your Financial Freedom <strong>Starts Here.</strong></span>
+    <span data-lang="hi">आपकी आर्थिक आज़ादी <strong>यहीं से शुरू होती है।</strong></span>
+    <span data-lang="mr">तुमचे आर्थिक स्वातंत्र्य <strong>इथूनच सुरू होते.</strong></span>
+  </div>
+  <div class="cta-sub reveal">
+    <span data-lang="en" class="active">Join hundreds of students already trading smarter in Uran & Navi Mumbai</span>
+    <span data-lang="hi">उरण और नवी मुंबई में स्मार्ट ट्रेडिंग करने वाले सैकड़ों छात्रों से जुड़ें</span>
+    <span data-lang="mr">उरण आणि नवी मुंबईत हुशारीने ट्रेडिंग करणाऱ्या शेकडो विद्यार्थ्यांमध्ये सामील व्हा</span>
+  </div>
+  <div class="cta-highlight reveal">
+    <span data-lang="en" class="active">🎯 Limited Seats — Enroll Today & Get FREE Counseling Session!</span>
+    <span data-lang="hi">🎯 सीमित सीटें — आज ही एनरोल करें और मुफ्त काउंसलिंग सेशन पाएं!</span>
+    <span data-lang="mr">🎯 मर्यादित जागा — आजच नोंदणी करा आणि मोफत समुपदेशन सत्र मिळवा!</span>
+  </div>
+  <a href="tel:+919920254354" class="btn-primary reveal" style="font-size:18px;padding:18px 48px;margin-bottom:10px;">
+    📞 +91 9920 254 354
+  </a>
+  <div class="contact-cards reveal">
+    <div class="contact-card">
+      <div class="ci">📍</div>
+      <div class="cl"><span data-lang="en" class="active">Location</span><span data-lang="hi">स्थान</span><span data-lang="mr">ठिकाण</span></div>
+      <div class="cv">Kamtha Road, near Gade Hospital, Shreeraj Nagar, APT, Uran, Maharashtra 400702</div>
+    </div>
+    <div class="contact-card">
+      <div class="ci">🕐</div>
+      <div class="cl"><span data-lang="en" class="active">Hours</span><span data-lang="hi">समय</span><span data-lang="mr">वेळ</span></div>
+      <div class="cv">
+        <span data-lang="en" class="active">Mon–Sun: 8:00 AM – 8:00 PM</span>
+        <span data-lang="hi">सोम–रवि: 8:00 AM – 8:00 PM</span>
+        <span data-lang="mr">सोम–रवि: 8:00 AM – 8:00 PM</span>
+      </div>
+    </div>
+    <div class="contact-card">
+      <div class="ci">📱</div>
+      <div class="cl"><span data-lang="en" class="active">Call / WhatsApp</span><span data-lang="hi">कॉल / व्हाट्सएप</span><span data-lang="mr">कॉल / व्हॉट्सअॅप</span></div>
+      <div class="cv">+91 9920 254 354</div>
+    </div>
+    <div class="contact-card">
+      <div class="ci">🎓</div>
+      <div class="cl"><span data-lang="en" class="active">Certificate</span><span data-lang="hi">सर्टिफिकेट</span><span data-lang="mr">प्रमाणपत्र</span></div>
+      <div class="cv"><span data-lang="en" class="active">Course Completion Certificate Provided</span><span data-lang="hi">कोर्स कंप्लीशन सर्टिफिकेट मिलता है</span><span data-lang="mr">अभ्यासक्रम पूर्णत्वाचे प्रमाणपत्र दिले जाते</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <strong>Lord Sai Investment & Share Market Academy</strong> — Uran, Navi Mumbai | Maharashtra 400702</p>
+  <p style="margin-top:6px;font-size:11px;opacity:0.6;">Practical Stock Market Education • Real Strategies • Risk Management</p>
+</footer>
+
+<script>
+// ── LANGUAGE SWITCHER ──
+function setLang(lang) {
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+  });
+  document.querySelectorAll('.lang-btn').forEach((btn, i) => {
+    const langs = ['en','hi','mr'];
+    btn.classList.toggle('active', langs[i] === lang);
+  });
+}
+
+// ── FAQ TOGGLE ──
+function toggleFaq(el) {
+  const ans = el.nextElementSibling;
+  const isOpen = ans.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
+  if (!isOpen) {
+    ans.classList.add('open');
+    el.classList.add('open');
+  }
+}
+
+// ── SCROLL REVEAL ──
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal, .feature-card, .learn-item, .who-card').forEach(el => {
+  revealObserver.observe(el);
+});
+
+// Add staggered delays
+document.querySelectorAll('.feature-card').forEach((el, i) => {
+  el.style.transitionDelay = (i * 0.08) + 's';
+});
+document.querySelectorAll('.learn-item').forEach((el, i) => {
+  el.style.transitionDelay = (i * 0.06) + 's';
+});
+document.querySelectorAll('.who-card').forEach((el, i) => {
+  el.style.transitionDelay = (i * 0.07) + 's';
+});
+
+// ── CANDLESTICKS ANIMATION ──
+const candlesBg = document.getElementById('candlesBg');
+const heights = [60,100,80,140,90,120,70,160,110,85,130,95,75,150,105,88,115,65,135,100,78,145,92,68,125,82];
+heights.forEach((h, i) => {
+  const c = document.createElement('div');
+  c.className = 'candle ' + (Math.random() > 0.45 ? 'green' : 'red');
+  c.style.setProperty('--d', (i * 0.08) + 's');
+  c.style.height = h + 'px';
+  candlesBg.appendChild(c);
+});
+
+// ── COUNTER ANIMATION ──
+function animateCounters() {
+  document.querySelectorAll('.stat-num').forEach(el => {
+    const text = el.textContent.trim();
+    const num = parseInt(text.replace(/\D/g,''));
+    if (!num || el.dataset.animated) return;
+    el.dataset.animated = true;
+    let start = 0;
+    const duration = 1500;
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = text.replace(String(num), Math.round(eased * num));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  });
+}
+setTimeout(animateCounters, 1200);
+</script>
+</body>
+</html>
