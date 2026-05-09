@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lord Sai Academy – Certificate Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #042C53;
+    --blue: #185FA5;
+    --blue-mid: #378ADD;
+    --blue-light: #B5D4F4;
+    --blue-pale: #E6F1FB;
+    --green: #1D9E75;
+    --gold: #EF9F27;
+    --gold-light: #FAC775;
+    --white: #fff;
+    --gray-bg: #f4f7fb;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Exo 2', sans-serif;
+    background: var(--gray-bg);
+    color: var(--navy);
+    min-height: 100vh;
+  }
+
+  /* ── HERO / HEADER ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #0c3d7a 60%, var(--blue) 100%);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: rgba(55,138,221,0.12);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: rgba(239,159,39,0.08);
+  }
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: relative; z-index: 2;
+  }
+  .logo-area { display: flex; align-items: center; gap: 14px; }
+  .logo-bull {
+    width: 52px; height: 52px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+  }
+  .logo-text { color: white; }
+  .logo-text .brand { font-family: 'Cinzel', serif; font-size: 18px; font-weight: 700; letter-spacing: 2px; }
+  .logo-text .sub { font-size: 10px; letter-spacing: 3px; color: var(--blue-light); text-transform: uppercase; margin-top: 2px; }
+
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .hero-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    padding: 64px 48px 72px;
+    align-items: center;
+    position: relative; z-index: 2;
+  }
+
+  .hero-left h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .hero-left h1 span { color: var(--gold); }
+  .hero-left p {
+    color: rgba(255,255,255,0.72);
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 440px;
+    margin-bottom: 32px;
+  }
+
+  .stats-row { display: flex; gap: 32px; margin-top: 8px; }
+  .stat { text-align: center; }
+  .stat .num { font-family: 'Cinzel', serif; font-size: 28px; font-weight: 700; color: var(--gold); }
+  .stat .lbl { font-size: 11px; letter-spacing: 2px; color: rgba(255,255,255,0.55); text-transform: uppercase; margin-top: 2px; }
+
+  /* ── CERTIFICATE CARD (right column) ── */
+  .cert-preview-wrap {
+    display: flex;
+    justify-content: center;
+  }
+  .cert-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 60px rgba(4,44,83,0.35);
+    position: relative;
+    overflow: hidden;
+  }
+  .cert-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--navy), var(--blue-mid), var(--gold));
+  }
+  .cert-header {
+    text-align: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e8eef5;
+    margin-bottom: 18px;
+  }
+  .cert-header .cert-logo {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    margin-bottom: 8px;
+  }
+  .bull-icon {
+    width: 36px; height: 36px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 18px;
+  }
+  .cert-header .academy-name {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 1.5px;
+  }
+  .cert-header .cert-title {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--blue); font-weight: 600; margin-top: 4px;
+  }
+
+  .cert-body { }
+  .cert-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+  .cert-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #8a9bb0; font-weight: 600; }
+  .cert-value { font-family: 'Rajdhani', sans-serif; font-size: 16px; font-weight: 700; color: var(--navy); text-align: right; }
+  .cert-divider { height: 1px; background: #e8eef5; margin: 16px 0; }
+
+  .cert-badge {
+    display: flex; align-items: center; gap: 8px;
+    background: #eaf8f2; border-radius: 8px; padding: 10px 14px;
+    margin-bottom: 16px;
+  }
+  .badge-icon { color: var(--green); font-size: 18px; }
+  .badge-text { font-size: 12px; color: #0b6945; font-weight: 600; letter-spacing: 0.5px; }
+
+  .download-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 20px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(4,44,83,0.3);
+  }
+  .download-btn:active { transform: translateY(0); }
+  .download-btn svg { width: 18px; height: 18px; fill: none; stroke: white; stroke-width: 2; }
+
+  /* ── PORTAL SECTION ── */
+  .portal-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 48px;
+  }
+
+  .section-eyebrow {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--blue); font-weight: 700; margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .section-sub {
+    font-size: 16px; color: #5a7090; max-width: 560px; line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  /* ── LOOKUP FORM ── */
+  .lookup-card {
+    background: white;
+    border-radius: 20px;
+    padding: 36px;
+    box-shadow: 0 4px 32px rgba(4,44,83,0.08);
+    border: 1px solid #dde8f5;
+    margin-bottom: 48px;
+  }
+  .lookup-card h3 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px; font-weight: 700;
+    color: var(--navy); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .lookup-card h3 svg { width: 22px; height: 22px; fill: none; stroke: var(--blue); stroke-width: 2; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label {
+    font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #6a80a0;
+  }
+  .form-group input {
+    border: 1.5px solid #dde8f5;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 15px;
+    color: var(--navy);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-group input:focus { border-color: var(--blue-mid); }
+
+  .search-btn {
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 13px 32px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: transform 0.15s;
+  }
+  .search-btn:hover { transform: translateY(-2px); }
+  .search-btn svg { width: 16px; height: 16px; fill: none; stroke: white; stroke-width: 2; }
+
+  /* ── RESULT CARD ── */
+  .result-card {
+    background: white;
+    border-radius: 20px;
+    border: 2px solid var(--blue-light);
+    padding: 36px;
+    box-shadow: 0 4px 32px rgba(4,44,83,0.08);
+    display: none;
+  }
+  .result-card.visible { display: block; animation: fadeUp 0.4s ease; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .result-header {
+    display: flex; align-items: center; gap: 20px; margin-bottom: 28px;
+    padding-bottom: 24px; border-bottom: 1px solid #e8eef5;
+  }
+  .student-avatar {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 22px; font-weight: 700;
+    color: var(--gold);
+  }
+  .student-info h2 {
+    font-family: 'Cinzel', serif; font-size: 22px; font-weight: 700; color: var(--navy);
+  }
+  .student-info .student-id {
+    font-size: 13px; color: var(--blue); font-weight: 600;
+    letter-spacing: 1px; margin-top: 3px;
+  }
+  .verified-pill {
+    margin-left: auto;
+    background: #eaf8f2; border: 1px solid #9fe1cb;
+    border-radius: 20px; padding: 6px 14px;
+    font-size: 12px; font-weight: 700; color: #0a6940;
+    letter-spacing: 1px; text-transform: uppercase;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .verified-pill svg { width: 14px; height: 14px; fill: none; stroke: #0a6940; stroke-width: 2.5; }
+
+  .details-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 28px; }
+  .detail-box {
+    background: var(--blue-pale);
+    border-radius: 12px;
+    padding: 16px 20px;
+  }
+  .detail-box .dlbl { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); font-weight: 600; margin-bottom: 6px; }
+  .detail-box .dval { font-family: 'Rajdhani', sans-serif; font-size: 17px; font-weight: 700; color: var(--navy); }
+
+  .cert-actions { display: flex; gap: 16px; }
+  .btn-primary {
+    flex: 1;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    color: white; border: none; border-radius: 10px;
+    padding: 14px 20px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    transition: transform 0.15s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); }
+  .btn-secondary {
+    background: white; border: 1.5px solid var(--blue-mid);
+    color: var(--blue); border-radius: 10px;
+    padding: 14px 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    transition: background 0.2s;
+  }
+  .btn-secondary:hover { background: var(--blue-pale); }
+  .btn-primary svg, .btn-secondary svg { width: 16px; height: 16px; fill: none; stroke-width: 2; }
+  .btn-primary svg { stroke: white; }
+  .btn-secondary svg { stroke: var(--blue); }
+
+  /* ── FEATURES ── */
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 64px; }
+  .feature-card {
+    background: white;
+    border-radius: 16px; padding: 28px 24px;
+    border: 1px solid #dde8f5;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(4,44,83,0.1); }
+  .feature-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--blue-pale);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+  .feature-icon svg { width: 24px; height: 24px; fill: none; stroke: var(--blue); stroke-width: 2; }
+  .feature-card h4 { font-family: 'Rajdhani', sans-serif; font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .feature-card p { font-size: 14px; color: #6a80a0; line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.65);
+    text-align: center;
+    padding: 28px 48px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+  footer strong { color: var(--gold-light); }
+
+  /* ── CERTIFICATE PDF TEMPLATE ── */
+  #cert-pdf-template {
+    display: none;
+    position: fixed;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  /* Toast */
+  .toast {
+    position: fixed; bottom: 32px; right: 32px;
+    background: var(--navy); color: white;
+    border-radius: 12px; padding: 14px 24px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px; font-weight: 600; letter-spacing: 1px;
+    box-shadow: 0 8px 32px rgba(4,44,83,0.3);
+    display: flex; align-items: center; gap: 10px;
+    transform: translateY(80px); opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+    z-index: 999;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast svg { width: 18px; height: 18px; fill: none; stroke: var(--gold); stroke-width: 2; }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<header class="hero">
+  <div class="topbar">
+    <div class="logo-area">
+      <div class="logo"> <img src="Lord sai logo1.png" width="250"></div>
+      <div class="logo-text">
+        <div class="brand">LORD SAI</div>
+        <div class="sub">Investment &amp; Share Market Academy</div>
+      </div>
+    </div>
+   
+  </div>
+
+  <div class="hero-body">
+    <div class="hero-left">
+      <h1>Download Your<br><span>Achievement</span><br>Certificate</h1>
+      <p>Officially issued digital certificates for all Lord Sai Investment &amp; Share Market Academy graduates. Verify, download, and share your credentials.</p>
+    </div>
+
+    <!-- Student Certificate Preview -->
+    <div class="cert-preview-wrap">
+      <div class="cert-card">
+        <div class="cert-header">
+          <div class="cert-logo">
+            <div class="bull-icon">🐂</div>
+            <div>
+              <div class="academy-name">LORD SAI ACADEMY</div>
+              <div class="cert-title">Investment &amp; Share Market</div>
+            </div>
+          </div>
+        </div>
+        <div class="cert-body">
+          <div class="cert-badge">
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span class="badge-text">✓ Certificate Ready for Download</span>
+          </div>
+          <div class="cert-row">
+            <span class="cert-label">Student Name</span>
+            <span class="cert-value">TANMAY DATTRAM GHARAT</span>
+          </div>
+          <div class="cert-row">
+            <span class="cert-label">Student ID</span>
+            <span class="cert-value" style="font-family:monospace;font-size:13px;">LSA/2026/0003</span>
+          </div>
+          <div class="cert-divider"></div>
+          <div class="cert-row">
+            <span class="cert-label">Course</span>
+            <span class="cert-value">Stock Market<br>Fundamentals</span>
+          </div>
+          <div class="cert-row">
+            <span class="cert-label">Duration</span>
+            <span class="cert-value">3 Months</span>
+          </div>
+          <div class="cert-row">
+            <span class="cert-label">Issued</span>
+            <span class="cert-value">April 2026</span>
+          </div>
+          <div class="cert-divider"></div>
+          <a href="(Financial & Stock Market Education Institute) (3).pdf" target="_blank" class="btn">
+      View Certificate
+    </a>
+&nbsp; &nbsp;
+ &nbsp;
+ &nbsp;
+
+    <!-- Download PDF -->
+    <a href="(Financial & Stock Market Education Institute) (3).pdf" download class="btn download">
+      Download PDF
+    </a>
+
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Footer -->
+<footer>
+  <strong>Lord Sai Investment &amp; Share Market Academy</strong> &nbsp;|&nbsp; Certificates are digitally issued and legally valid &nbsp;|&nbsp; support@lordsaiacademy.in
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  <span id="toast-msg">Done!</span>
+</div>
+
+</body>
+</html>
